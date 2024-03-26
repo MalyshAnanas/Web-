@@ -16,13 +16,25 @@
 </head>
 <body>
 <?php
-// Пункт 1
+// Пункт 1.a
+echo "~~~~Пункт №1.a~~~~" . "<br>";
 $regExp = '/a[a-z]{2}b/i';
 $str = 'ahb acb aeb aeeb adcb axeb';
 $Dudu = array();
 $cnt = preg_match_all($regExp, $str, $Dudu);
 echo "Найдено подстрок: " . $cnt . "<br>";
 var_dump($Dudu);
+
+// Пункт 1.b
+echo "<br>" . "~~~~Пункт №1.b~~~~" . "<br>";
+$regExp = '/[0-9]/';
+$str = 'a1b2c3';
+$Kuromi = array();
+$result = preg_replace_callback($regExp, function ($Kuromi) {
+    return pow(intval($Kuromi[0]), 3);
+},
+    $str);
+echo "Новая строчка: ". $result;
 ?>
 </body>
 </html>
