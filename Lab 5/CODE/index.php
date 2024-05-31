@@ -41,6 +41,21 @@
     </label>
 </form>
 <?php
+$container = 'db';
+$useruser = 'root';
+$password = 'itsaBASE';
+$database = 'BASE';
+$port = 3306;
+
+$babyBASE = new mysqli($container, $useruser, $password, $database, $port);
+
+foreach ($babyBASE->query("SELECT * FROM BASE.ad") as $row) {
+    $category = $row['category'];
+    $title = $row['title'];
+    $description = $row['description'];
+    $email = $row['email'];
+    echo "<p> $email -> $title -> $description -> $category </p>";
+}
 //for ($i = 1; $i < sizeof($response->getValues()); $i++) {
 //    $valuesInRow = array();
 //    echo "<p>";
